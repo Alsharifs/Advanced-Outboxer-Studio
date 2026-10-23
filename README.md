@@ -3,6 +3,10 @@
 Turns websites **and whole HTML/CSS/JS project folders** into Windows desktop apps.
 Developed by Sayed Alsharif.
 
+**[⬇ Download the ready-to-run version](https://github.com/Alsharifs/Advanced-Outboxer-Studio/releases/latest)** (portable, everything included, Windows 10/11 64-bit) or run `npx @alsharif/outboxer-studio` · **[📖 Full guide](docs/GUIDE.md)** · **[Toolbox command reference](docs/TOOLBOX-API.md)**
+
+![Advanced Outboxer Studio building GitHub as a desktop app](docs/images/website-app.png)
+
 * **Website (URL)** — everything Outboxer Studio v1.0 does, unchanged (Nativefier 53 / Electron, shared runtime, WebView2, local-server apps).
 * **Project folder** — your own pages become a Windows app on Electron, with the **desktop toolbox** (`window.desktop`):
   hotkeys and hotstrings, sending keys, mouse, other programs' windows, files, clipboard, programs, tray, dialogs,
@@ -11,6 +15,16 @@ Developed by Sayed Alsharif.
 * **Electron app folder** — a finished Electron app (`package.json` with `"main"`, e.g. MasterKey-Electron) is packaged
   as it is, running its own main script. Its packages come from its `node_modules` or from Studio (koffi), so no npm
   is needed on the PC; electron-builder's icon, extraResources and extraFiles are honoured. Test Run works too.
+
+## Screenshots
+
+| Project folder: checked and ready to build | A project app using the desktop toolbox |
+| --- | --- |
+| ![Project folder mode](docs/images/project-project.png) | ![The Toolbox Demo app](docs/images/toolbox-demo.png) |
+| **The Engines window** | **The built-in toolbox guide** |
+| ![Engines window](docs/images/engines.png) | ![Desktop toolbox guide](docs/images/toolbox-guide.png) |
+
+The **[full guide](docs/GUIDE.md)** walks through every option with more screenshots: app engines, website options, local-server apps, project folders, Electron app folders, React/Vue/Vite builds, the desktop toolbox, the Engines window, sharing apps and troubleshooting.
 
 ## Start
 
