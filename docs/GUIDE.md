@@ -91,8 +91,6 @@ Options that the chosen engine does not use are greyed out automatically.
 
 ## 5. Website options, section by section
 
-![The Window section](images/website-window.png)
-
 Empty or *(default)* means: use the normal behaviour. Hover over any field to see the exact Nativefier option it sets.
 
 ### App
