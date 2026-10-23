@@ -1,4 +1,4 @@
-# Advanced Outboxer Studio v4.0
+# Advanced Outboxer Studio v4.0.1
 
 Turns websites **and whole HTML/CSS/JS project folders** into Windows desktop apps.
 Developed by Sayed Alsharif.

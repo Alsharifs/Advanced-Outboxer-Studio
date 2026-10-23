@@ -30,7 +30,7 @@ Advanced Outboxer Studio turns **a website**, **a web app with its own local ser
 
 **From GitHub**
 
-1. Download `Advanced-Outboxer-Studio-v4.0-win64.zip` from the [latest release](https://github.com/Alsharifs/Advanced-Outboxer-Studio/releases/latest).
+1. Download `Advanced-Outboxer-Studio-v4.0.1-win64.zip` from the [latest release](https://github.com/Alsharifs/Advanced-Outboxer-Studio/releases/latest).
 2. Extract it to a folder with a **short path**, for example `C:\Tools\Advanced Outboxer Studio`. Don't run it from inside the zip.
 3. Double-click **`Advanced_Outboxer_Studio.bat`**. It uses the Python in `Engines\python`.
 
@@ -264,7 +264,7 @@ Open it with **Engines**. Everything Studio uses lives in the `Engines` folder n
 - **WebView2**: the Edge WebView2 Runtime on this PC (part of Windows) and the WebView2 SDK (two small Microsoft files put into each WebView2 app). Downloads are checked for Microsoft's signature.
 - **Updates**: when it starts, Studio checks for new versions at most every 12 hours. You can turn that off (`auto_check_updates` in the settings file) or use **Check for updates now**. The activity log at the bottom shows what happened.
 
-**Included in v4.0:** Python 3.14.8 (with PySide6 and Pillow), Node.js 26.12.0, Nativefier 53.0.0, Electron 44.9.1 (zip), shared Electron runtime 44.7.2 and WebView2 SDK 1.0.4258.31.
+**Included in v4.0.1:** Python 3.14.8 (with PySide6 and Pillow), Node.js 26.12.0, Nativefier 53.0.0, Electron 44.9.1 (zip), shared Electron runtime 44.7.2 and WebView2 SDK 1.0.4258.31.
 
 ---
 
