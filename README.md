@@ -13,7 +13,7 @@ Turns websites **and whole HTML/CSS/JS project folders** into Windows desktop ap
 ## Getting started
 
 1. Download `Advanced-Outboxer-Studio-v4.0-win64.zip` (about 405 MB) from the [latest release](https://github.com/Alsharifs/Advanced-Outboxer-Studio/releases/latest).
-2. Extract it to a folder (for example `C:\Tools\Advanced Outboxer Studio`). Don't run it from inside the zip.
+2. Extract it to a folder with a short path (for example `C:\Tools\Advanced Outboxer Studio`). Don't run it from inside the zip. A very deep folder (a path longer than about 100 characters) makes Windows' 260-character path limit stop Qt from loading. Studio then fails with "no Qt platform plugin could be initialized".
 3. Double-click **Advanced_Outboxer_Studio.bat**.
 
 **Have Node.js?** Run `npx @alsharif/outboxer-studio` instead. It downloads the release, checks its checksum and starts Studio.
