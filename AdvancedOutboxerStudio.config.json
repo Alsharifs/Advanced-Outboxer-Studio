@@ -1,0 +1,19 @@
+{
+  "_about": "Advanced Outboxer Studio v2.0 settings. Empty paths mean the default inside the Engines folder; relative paths are relative to the Studio folder.",
+  "node_path": "",
+  "nativefier_dir": "",
+  "electron_dir": "",
+  "runtime_dir": "",
+  "webview2_dir": "",
+  "electron_version": "44.9.1",
+  "node_channel": "current",
+  "auto_check_updates": true,
+  "latest": {
+    "checked": 1792517107,
+    "node_current": "26.12.0",
+    "node_lts": "24.22.0",
+    "node_lts_name": "Krypton",
+    "electron": "44.9.1",
+    "webview2_sdk": "1.0.4258.31"
+  }
+}

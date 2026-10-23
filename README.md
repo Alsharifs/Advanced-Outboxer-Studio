@@ -1,50 +1,40 @@
-# Advanced Outboxer Studio
+# Advanced Outboxer Studio v2.0
 
-Turns websites **and whole HTML/CSS/JS project folders** into Windows desktop apps. Developed by Sayed Alsharif.
+Turns websites **and whole HTML/CSS/JS project folders** into Windows desktop apps.
+Developed by Sayed Alsharif.
 
-**[⬇ Download the latest version](https://github.com/Alsharifs/Advanced-Outboxer-Studio/releases/latest)**: portable, nothing to install, Windows 10/11 64-bit.
+* **Website (URL)** — everything Outboxer Studio v1.0 does, unchanged (Nativefier 53 / Electron, shared runtime, WebView2, local-server apps).
+* **Project folder** — your own pages become a Windows app on Electron, with the **desktop toolbox** (`window.desktop`):
+  hotkeys and hotstrings, sending keys, mouse, other programs' windows, files, clipboard, programs, tray, dialogs,
+  screen capture and OCR, power, system, audio, registry, network, store, SQLite, printing, plus the master keys
+  `desktop.exec`, `desktop.powershell`, `desktop.win32` and your own Node.js code in the project's `desktop` folder.
+* **Electron app folder** — a finished Electron app (`package.json` with `"main"`, e.g. MasterKey-Electron) is packaged
+  as it is, running its own main script. Its packages come from its `node_modules` or from Studio (koffi), so no npm
+  is needed on the PC; electron-builder's icon, extraResources and extraFiles are honoured. Test Run works too.
 
-## What it does
+## Start
 
-- **Website (URL):** a website becomes a desktop app, on Nativefier 53 / Electron, a shared Electron runtime or WebView2. Local-server web apps are supported too: the server starts and stops with the app.
-- **Project folder:** your own pages become a Windows app on Electron, with the **desktop toolbox** (`window.desktop`). It covers hotkeys and hotstrings, sending keys, mouse, other programs' windows, files, clipboard, programs, tray, dialogs, screen capture and OCR, power, system, audio, registry, network, storage, SQLite and printing, plus `desktop.exec`, `desktop.powershell`, `desktop.win32` and your own Node.js code.
-- **Electron app folder:** a finished Electron app (a `package.json` with `"main"`) is packaged as it is. No npm is needed on the PC.
+Double-click **Advanced_Outboxer_Studio.bat** (needs Python with PySide6 and Pillow: `python -m pip install PySide6 Pillow`).
+On the first start, if Outboxer Studio v1.0 sits next to this folder, Studio offers to copy or share its Engines.
 
-## Getting started
+## Folder
 
-1. Download `Advanced-Outboxer-Studio-v4.0-win64.zip` (about 405 MB) from the [latest release](https://github.com/Alsharifs/Advanced-Outboxer-Studio/releases/latest).
-2. Extract it to a folder with a short path (for example `C:\Tools\Advanced Outboxer Studio`). Don't run it from inside the zip. A very deep folder (a path longer than about 100 characters) makes Windows' 260-character path limit stop Qt from loading. Studio then fails with "no Qt platform plugin could be initialized".
-3. Double-click **Advanced_Outboxer_Studio.bat**.
+| Path | What it is |
+|---|---|
+| `advanced_outboxer_studio.py` | The Studio: v1.0's source with the project mode wired in |
+| `project_ui.py` | Project mode in the window: Source switch, options, Test Run, Check tab, templates, guide |
+| `project_core.py` | Project mode logic (no UI): scan/check, settings, build bundled/shared, Electron app folders, templates, guide |
+| `host\` | The app host copied into every project app (`main.js`, `preload.js`, `lib\`, `toolbox\`, `node_modules\koffi`) |
+| `host\toolbox\*.js` | One file per `desktop.*` area — add a method there and it appears in pages, the guide and `desktop.d.ts` |
+| `templates\` | Starting points for **File → New project from template** (each folder + `template.json`) |
+| `examples\Toolbox Demo\` | Tries every toolbox area (**Help → Open the toolbox example project**) |
+| `docs\toolbox-intro.html` | First part of the toolbox guide (the command list is read from `host\toolbox`) |
+| `Engines\` | Node.js, Nativefier, Electron zips, shared runtimes, WebView2 SDK (created/filled by Studio) |
+| `AdvancedOutboxerStudio.config.json` | Engine paths and the default Electron version |
 
-**Have Node.js?** Run `npx @alsharif/outboxer-studio` instead. It downloads the release, checks its checksum and starts Studio.
+Each project keeps its own settings in `outboxer.json` inside the project folder.
 
-Everything Studio needs comes in the download and works offline. **Engines** gives you newer Node.js and Electron versions when you want them:
+## Updating the toolbox
 
-| Included in `Engines\` | Version |
-| --- | --- |
-| Python (runs Studio) with PySide6 and Pillow | 3.14.8 |
-| Node.js | 26.12.0 |
-| Nativefier | 53.0.0 |
-| Electron (for building apps) | 44.9.1 |
-| Shared Electron runtime | 44.7.2 |
-| WebView2 SDK | 1.0.4258.31 |
-
-## Good to know
-
-- Each project keeps its own settings in `outboxer.json` inside the project folder. Studio's own settings are in `AdvancedOutboxerStudio.config.json`.
-- Studio goes online to check for newer Node.js and Electron versions when it starts (you can turn that off with `auto_check_updates` in the settings file). It also goes online when you download engines and when you build an app from a website.
-- Windows SmartScreen may warn about apps you build, because they aren't code-signed.
-
-## Checking your download
-
-Each release includes a `.sha256` file. In PowerShell:
-
-```powershell
-Get-FileHash .\Advanced-Outboxer-Studio-v4.0-win64.zip -Algorithm SHA256
-```
-
-The result should match the hash in the `.sha256` file.
-
----
-
-The download includes third-party software under its own licenses (Python, Node.js, Electron, Nativefier, Qt/PySide6, Pillow, WebView2 SDK). Their license files are inside the `Engines` folder.
+Toolbox modules return `const self = { … }`: a method with a `/** doc comment */` above it is documented automatically.
+Inside a method, `this` is the calling page (`this.win`, `this.onDispose(fn)`), so call sibling methods through `self`.
